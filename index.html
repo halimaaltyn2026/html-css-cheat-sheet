@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя Шпаргалка по HTML и CSS</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #4a5568;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-top: 5px solid #28a745;
+        }
+        .card h3 {
+            margin-top: 0;
+            color: #212529;
+        }
+        .card code {
+            background-color: #f1f1f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🧠 Моя База Знаний: Повторение от корней</h1>
+
+    <div class="container">
+
+        <!-- Карточка 1 -->
+        <div class="card">
+            <h3>Тег <code>&lt;div&gt;</code></h3>
+            <p>Это обычный блочный элемент-контейнер. Используется как коробка для других элементов.</p>
+        </div>
+
+        <!-- Карточка 2 -->
+        <div class="card">
+            <h3>Свойство <code>display: flex</code></h3>
+            <p>Включает гибкую разметку (Flexbox). Помогает легко выстраивать элементы в ряд или колонку.</p>
+        </div>
+
+        <!-- Карточка 3 -->
+        <div class="card">
+            <h3>Тег <code>&lt;span&gt;</code></h3>
+            <p>Строчный элемент. Нужен для выделения отдельных слов или кусочков текста внутри строки.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
