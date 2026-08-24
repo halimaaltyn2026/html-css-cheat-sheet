@@ -129,6 +129,31 @@
         </div>
 
     </div>
+    
+<script>
+// 1. Находим наше поле ввода и все карточки на странице
+const searchInput = document.getElementById('search-input');
+const cards = document.querySelectorAll('.card');
+
+// 2. Слушаем каждый клик по клавиатуре в поле ввода
+searchInput.addEventListener('input', function() {
+  // Переводим введенный текст в нижний регистр, чтобы поиск работал без учета больших букв
+  const filter = searchInput.value.toLowerCase();
+
+  // 3. Перебираем каждую карточку на странице по очереди
+  cards.forEach(function(card) {
+    // Берем весь текст, который написан внутри карточки, и тоже делаем его маленькими буквами
+    const cardText = card.textContent.toLowerCase();
+
+    // 4. Если текст из поиска есть в карточке — показываем её, если нет — прячем
+    if (cardText.includes(filter)) {
+      card.style.style.display = ''; // Показываем карточку
+    } else {
+      card.style.display = 'none'; // Прячем карточку
+    }
+  });
+});
+</script>
 
 </body>
 </html>
