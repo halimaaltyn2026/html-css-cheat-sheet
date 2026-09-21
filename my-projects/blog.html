@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Личный Блог</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Переключатель языков на странице блога -->
+    <div class="lang-switcher">
+        <button onclick="changeLanguage('ru')" class="lang-btn">RU</button>
+        <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
+        <button onclick="changeLanguage('tr')" class="lang-btn">TR</button>
+    </div>
+
+    <header>
+        <h1 data-i18n="blog-welcome">Добро пожаловать в мой блог! ✍️</h1>
+        <p data-i18n="blog-subtitle">Здесь я делюсь своими мыслями и успехами в IT.</p>
+        <a href="index.html" class="btn" data-i18n="blog-back">Назад на главную</a>
+    </header>
+
+    <main>
+        <!-- Форма для добавления нового поста -->
+        <section class="form-section">
+            <h2 data-i18n="blog-add-title">Добавить новую запись</h2>
+            <form id="blog-form">
+                <input type="text" id="post-title" data-i18n="blog-placeholder-title" placeholder="Заголовок статьи" required>
+                <textarea id="post-text" data-i18n="blog-placeholder-text" placeholder="Текст вашей статьи..." rows="5" required></textarea>
+                <button type="submit" data-i18n="blog-publish-btn">Опубликовать</button>
+            </form>
+        </section>
+
+        <!-- Лента, куда будут добавляться посты -->
+        <section class="posts-section">
+            <h2 data-i18n="blog-all-posts">Все записи</h2>
+            <div id="posts-container">
+                <!-- Сюда JavaScript будет вставлять наши посты -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Подключаем JavaScript файл -->
+    <script src="script.js"></script>
+</body>
+</html>

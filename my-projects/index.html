@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мое портфолио</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка сайта и переключатель языков -->
+    <div class="lang-switcher">
+        <button onclick="changeLanguage('ru')" class="lang-btn">RU</button>
+        <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
+        <button onclick="changeLanguage('tr')" class="lang-btn">TR</button>
+    </div>
+    
+<!-- Кнопка переключения темы -->
+<div class="theme-container" style="text-align: right; padding: 10px 20px;">
+    <button id="theme-toggle" class="theme-btn">🌙 Темная тема</button>
+</div>
+
+    <header>
+        <h1 data-i18n="about-title">Мое портфолио</h1>
+
+        <nav>
+            <a href="#about">Обо мне</a>
+            <a href="#projects">Проекты</a>
+        </nav>
+    </header>
+
+    <!-- Основной блок с информацией -->
+    <main id="about">
+        <h2 data-i18n="about-title">Обо мне</h2>
+        <p data-i18n="about-text">Привет! Я начинающий веб-разработчик. Учусь с января 2026 года.</p>
+        
+        <h3 data-i18n="skills-title">Мои навыки</h3>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Git</li>
+        </ul>
+
+        <h3 data-i18n="languages-title">Языки:</h3>
+        <ul>
+            <li><strong data-i18n="lang-ru">Русский:</strong> <span data-i18n="lang-ru-desc">Родной язык</span></li>
+            <li><strong data-i18n="lang-tr">Турецкий:</strong> <span data-i18n="lang-tr-desc">Разговорный / Изучаю</span></li>
+            <li><strong data-i18n="lang-en">Английский:</strong> <span data-i18n="lang-en-desc">Начальный / Изучаю</span></li>
+        </ul>
+    </main>
+
+    <!-- Раздел с проектами -->
+    <section id="projects">
+        <h2 data-i18n="projects-title">Мои проекты</h2>
+
+        <article>
+            <h3><a href="blog.html" data-i18n="proj-1-title">Проект 1: Перейти в мой Блог ✍️</a></h3>
+            <p data-i18n="proj-1-desc">Создание блога с использованием HTML, CSS и JavaScript. (В процессе разработки, скоро появится)</p>
+        </article>
+
+        <article>
+            <h3><a href="webinar.html" data-i18n="proj-2-title">Проект 2: Вебинар</a></h3>
+            <p data-i18n="proj-2-desc">Форма регистрации на вебинар.</p>
+        </article>
+
+        <article>
+            <h3><span data-i18n="proj-3-title">Проект 3: Интернет-магазин</span></h3>
+            <p data-i18n="proj-3-desc">Разработка internet-магазина с использованием Vue. (В процессе разработки, скоро появится)</p>
+        </article>
+
+        <article>
+            <h3><span data-i18n="proj-4-title">Проект 4: Портфолио</span></h3>
+            <p data-i18n="proj-4-desc">Создание страницы портфолио с использованием HTML и CSS.</p>
+        </article>
+
+        <article>
+            <h3><a href="coffee.html" data-i18n="proj-5-title">Проект 5: Кофейня «Sweet & Coffee»</a></h3>
+            <p data-i18n="proj-5-desc">Адаптивный сайт кофейни с меню, ценами и интерактивной формой быстрого заказа.</p>
+        </article>
+        <article>
+           <h3><a href="todo.html" data-i18n="proj-6-title">Проект 6: Мой интерактивный To-Do List</a></h3>
+           <p data-i18n="proj-6-desc">Интерактивный список задач, созданный на чистом JavaScript.</p>
+       </article>
+        <article>
+           <h3><a href="password.html" data-i18n="proj-7-title">Проект 7: Генератор паролей</a></h3>
+          <p data-i18n="proj-7-desc">Генератор надёжных паролей с выбором длины и копированием в буфер обмена.</p>
+       </article>
+        <article>
+<h3><a href="profile.html" data-i18n="proj-8-title">Проект 8: Карточка профиля веб-разработчика</a></h3>
+<p data-i18n="proj-8-desc">Интерактивная карточка пользователя с современным дизайном, градиентной обводкой аватара и плавными эффектами наведения.</p>
+        </article>
+
+    </section>
+
+    <!-- Подвал сайта -->
+    <div style="text-align: center; margin: 30px 0;">
+        <button id="magicBtn" style="background-color: #2563eb; color: #ffffff; border: none; padding: 10px 20px; font-size: 1rem; font-weight: 500; border-radius: 6px; cursor: pointer;">
+            Показать совет по продуктивности
+        </button>
+        <p id="magicMessage" style="margin-top: 15px; font-size: 1rem; color: #000000; font-style: italic; font-weight: bold;"></p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Мое портфолио</p>
+    </footer>
+
+    <!-- Подключаем JavaScript файл -->
+    <script src="script.js"></script>
+</body>
+</html>
+

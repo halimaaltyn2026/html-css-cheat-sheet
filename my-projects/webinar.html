@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма регистрации на вебинар</title>
+<style>
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0f172a; color: #f8fafc;
+    display: flex; justify-content: center; align-items: center;
+    min-height: 100vh;
+  }
+  form {
+    background-color: #1e293b; padding: 30px;
+    border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    width: 90%; max-width: 360px; box-sizing: border-box;
+  }
+  fieldset {
+    border: 1px solid #334155; border-radius: 8px;
+    margin-bottom: 20px; padding: 15px;
+  }
+  legend {
+    font-weight: 600; color: #38bdf8; padding: 0 10px; font-size: 14px;
+  }
+  form div {
+    margin-bottom: 15px; display: flex; flex-direction: column;
+  }
+  label {
+    font-size: 14px; margin-bottom: 6px; color: #94a3b8;
+  }
+  input[type="text"], input[type="email"], input[type="tel"], select {
+    background-color: #0f172a; border: 1px solid #334155;
+    border-radius: 8px; padding: 10px; color: #f8fafc;
+    font-size: 15px; outline: none;
+  }
+  input:focus, select:focus {
+    border-color: #6366f1; box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  }
+  button, input[type="submit"] {
+    width: 100%; background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white; border: none; border-radius: 8px; padding: 12px;
+    font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 10px;
+  }
+</style>
+
+</head>
+<body>
+
+    <!-- Шаг 1: Структура формы -->
+    <!-- Форма будет отправлять данные на register.php методом POST -->
+    <form action="register.php" method="POST">
+
+        <!-- Шаг 2: Личные данные -->
+        <fieldset>
+            <legend>Личные данные</legend>
+
+            <!-- Поле для имени -->
+            <label for="first_name">Имя:</label>
+            <input type="text" id="first_name" name="first_name" required>
+            <br><br>
+
+            <!-- Поле для фамилии -->
+            <label for="last_name">Фамилия:</label>
+            <input type="text" id="last_name" name="last_name" required>
+        </fieldset>
+
+        <br>
+
+        <!-- Шаг 3: Контактная информация -->
+        <!-- Здесь мы добавляем поля для email и телефона -->
+        <fieldset>
+            <legend>Контактная информация</legend>
+
+            <!-- Поле для email (обязательно) -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br><br>
+
+            <!-- Поле для телефона (необязательно) -->
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="phone">
+        </fieldset>
+
+        <br>
+
+        <!-- Шаг 4: Настройки вебинара -->
+        <!-- Здесь пользователь выбирает тему -->
+        <fieldset>
+            <legend>Настройки вебинара</legend>
+
+            <!-- Выпадающий список -->
+            <label for="topic">Выберите тему вебинара:</label>
+            <select id="topic" name="topic">
+                <option value="html">Основы HTML</option>
+                <option value="css">Стили CSS</option>
+                <option value="js">Базовый JavaScript</option>
+            </select>
+        </fieldset>
+
+        <br>
+
+        <!-- Шаг 5: Кнопка отправки -->
+        <!-- Кнопка, которая отправляет форму -->
+        <button type="submit">Зарегистрироваться</button>
+
+    </form>
+
+</body>
+</html>

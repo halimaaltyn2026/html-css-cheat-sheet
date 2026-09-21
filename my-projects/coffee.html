@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet & Coffee | Кофейня у дома</title>
+    <!-- CSS СТИЛИ (Дизайн кофейни в теплых тонах) -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfbf7;
+            color: #4a3b32;
+        }
+
+        /* Шапка сайта (Header) */
+        header {
+            background-color: #4a3b32;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #f3d2c1;
+        }
+
+        /* Главный блок (Промо) */
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #f3d2c1;
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        /* Сетка товаров (Меню) */
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 1px solid #e8e3dc;
+        }
+
+        .product-card h3 {
+            margin: 10px 0;
+            color: #4a3b32;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e07a5f;
+            margin-bottom: 15px;
+        }
+
+        .btn-buy {
+            background-color: #8c7855;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .btn-buy:hover {
+            background-color: #4a3b32;
+        }
+
+        /* Секция заказа (Форма) */
+        .order-section {
+            background-color: #f8f5f0;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .btn-submit {
+            background-color: #e07a5f;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #c96449;
+        }
+
+        /* Всплывающее уведомление об успехе */
+        #success-msg {
+            display: none;
+            color: #2b9348;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. ШАПКА -->
+    <header>
+        <h1>☕ Sweet & Coffee</h1>
+        <p>Уютная атмосфера и свежая выпечка каждый день</p>
+    </header>
+
+    <!-- 2. ГЛАВНЫЙ БЛОК -->
+    <section class="hero">
+        <h2>Скидка 15% на первый заказ!</h2>
+        <p>Выберите любимый напиток и десерт прямо сейчас.</p>
+    </section>
+
+    <!-- 3. МЕНЮ ТОВАРОВ -->
+    <main class="container">
+        <h2 style="text-align: center; margin-bottom: 30px;">Наше Меню</h2>
+        
+        <div class="menu-grid">
+            <!-- Товар 1 -->
+            <div class="product-card">
+                <div style="font-size: 50px;">☕</div>
+                <h3>Капучино</h3>
+                <p>Классический кофейный напиток с густой молочной пенкой.</p>
+                <div class="price">190 ₽</div>
+                <button class="btn-buy" onclick="selectProduct('Капучино')">Выбрать</button>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card">
+                <div style="font-size: 50px;">🍰</div>
+                <h3>Фирменный Торт</h3>
+                <p>Нежный бисквит с легким кремом и свежими ягодами.</p>
+                <div class="price">250 ₽</div>
+                <button class="btn-buy" onclick="selectProduct('Фирменный Торт')">Выбрать</button>
+            </div>
+
+            <!-- Товар 3 -->
+            <div class="product-card">
+                <div style="font-size: 50px;">🥐</div>
+                <h3>Круассан</h3>
+                <p>Французская выпечка из хрустящего слоеного теста.</p>
+                <div class="price">130 ₽</div>
+                <button class="btn-buy" onclick="selectProduct('Круассан')">Выбрать</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- 4. ФОРМА ОФОРМЛЕНИЯ ЗАКАЗА -->
+    <section class="order-section">
+        <h2>Оформить быстрый заказ</h2>
+        <p>Заполните форму, и мы приготовим ваш заказ к вашему приходу!</p>
+
+        <form id="orderForm">
+            <!-- Поле с выбранным товаром заполнится автоматически через JS -->
+            <input type="text" id="productInput" placeholder="Выбранный товар" readonly required>
+            <input type="text" id="nameInput" placeholder="Ваше имя" required>
+            <input type="tel" id="phoneInput" placeholder="Номер телефона" required>
+            
+            <button type="submit" class="btn-submit">Подтвердить заказ ✨</button>
+            
+            <div id="success-msg">Заказ успешно оформлен! Мы свяжемся с вами.</div>
+        </form>
+    </section>
+
+    <!-- JAVASCRIPT ЛОГИКА (Интерактив сайта) -->
+    <script>
+        const productInput = document.getElementById('productInput');
+        const orderForm = document.getElementById('orderForm');
+        const successMsg = document.getElementById('success-msg');
+
+        // Функция 1: Когда пользователь нажимает кнопку «Выбрать» на карточке товара
+        function selectProduct(productName) {
+            productInput.value = productName; // Подставляем имя товара в форму автоматически
+            
+            // Плавно прокручиваем страницу вниз к форме заказа
+            productInput.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Функция 2: Обработка отправки формы заказа
+        orderForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Останавливаем перезагрузку страницы при отправке формы
+
+            // Получаем данные, которые ввел пользователь
+            const name = document.getElementById('nameInput').value;
+            const phone = document.getElementById('phoneInput').value;
+            const product = productInput.value;
+
+            // Лог в консоль браузера для проверки разработчиком
+            console.log(`Новый заказ! Клиент: ${name}, Телефон: ${phone}, Товар: ${product}`);
+
+            // Показываем сообщение об успешном заказе
+            successMsg.style.display = 'block';
+
+            // Очищаем форму через 3 секунды (3000 миллисекунд)
+            setTimeout(() => {
+                orderForm.reset();
+                successMsg.style.display = 'none';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

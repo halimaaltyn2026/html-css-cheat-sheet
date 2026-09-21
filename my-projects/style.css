@@ -1,0 +1,273 @@
+/* --- СТИЛИ ДЛЯ СТРАНИЦЫ БЛОГА --- */
+
+.form-section {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.form-section h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+#blog-form input, 
+#blog-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#blog-form input:focus, 
+#blog-form textarea:focus {
+    border-color: #007bff;
+}
+
+#blog-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+#blog-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#blog-form button:hover {
+    background-color: #0056b3;
+}
+
+#blog-form button:active {
+    transform: scale(0.98);
+}
+
+/* --- СТИЛИ ДЛЯ ЛЕНТЫ ПОСТОВ --- */
+.posts-section {
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+.post {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 1px solid #eef2f5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.post h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.post p {
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+/* Кнопка удаления внутри поста */
+.delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #e60000;
+}
+
+/* Кнопки переключения языков */
+.lang-switcher {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+}
+
+.lang-btn {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+    background: #f0f0f0;
+}
+
+.lang-btn.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Плавный переход для всех элементов */
+body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Стили для темной темы */
+body.dark-theme {
+    background-color: #121214; /* Глубокий графитовый цвет */
+    color: #F3F4F6;            /* Мягкий белый текст */
+}
+
+/* Ярко-розовые ссылки, которые теперь не будут фиолетовыми! 🌸 */
+body.dark-theme a {
+    color: #FF69B4 !important; /* Насыщенный розовый цвет */
+    text-decoration: none !important;
+    border-bottom: 1px dashed #FF69B4; 
+    transition: color 0.3s ease;
+}
+
+/* Эффект при наведении */
+body.dark-theme a:hover {
+    color: #FFB6C1 !important; /* Нежно-розовый при нажатии */
+    border-bottom: 1px solid #FFB6C1;
+}
+
+
+/* Стили для самой кнопки */
+.theme-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #333333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Вид кнопки, когда включена темная тема */
+body.dark-theme .theme-btn {
+    background-color: #333333;
+    color: #ffffff;
+    border-color: #555555;
+}
+
+/* === СТИЛИ ДЛЯ СТРАНИЦЫ TO-DO LIST === */
+.todo-app {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+flex-direction: column;
+align-items: center;
+ font-family: inherit;
+}
+
+/* Стили для заголовка */
+.todo-app h2 {
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+/* Поле ввода */
+#taskInput {
+    width: 100%;
+      padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+
+}
+
+#taskInput:focus {
+    border-color: #2563eb; /* Синий фокус при клике */
+}
+
+/* Общие стили для кнопок */
+.todo-app button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+/* Кнопка "Добавить" */
+#addBtn {
+    background-color: #2563eb;
+    color: white;
+    margin-top: 12px;
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+#addBtn:hover {
+    background-color: #1d4ed8;
+}
+
+/* Кнопка "Очистить всё" */
+#clearAllBtn {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    background-color: #ef4444; /* Приятный красный цвет вместо резкого */
+    color: white;
+}
+
+#clearAllBtn:hover {
+    background-color: #dc2626;
+}
+
+/* Кнопка активного действия при нажатии */
+.todo-app button:active {
+    transform: scale(0.98);
+}
+
+/* Ссылка возврата на главную */
+.todo-app a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+article h3 a, 
+article h3 a:visited {
+    color: #7b2cbf !important;
+}
