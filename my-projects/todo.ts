@@ -1,79 +1,91 @@
-"use strict";
-const taskInput = document.querySelector('#taskInput');
-const addBtn = document.querySelector('#addBtn');
-const clearAllBtn = document.querySelector('#clearAllBtn');
-const taskList = document.querySelector('#taskList');
+const taskInput = document.querySelector('#taskInput') as HTMLInputElement;
+const addBtn = document.querySelector('#addBtn') as HTMLButtonElement;
+const clearAllBtn = document.querySelector('#clearAllBtn') as HTMLButtonElement;
+const taskList = document.querySelector('#taskList') as HTMLUListElement;
+
 // Функция, которая собирает все задачи с экрана и сохраняет их в память телефона
 function saveTasks() {
-    const tasks = [];
-    document.querySelectorAll('#taskList li').forEach((li) => {
+    const tasks: any[] = [];
+    document.querySelectorAll('#taskList li').forEach((li: any) => {
         // Убираем текст кнопки "Х" из названия задачи
-        const text = li.firstChild?.textContent?.trim() || '';
-        const isCompleted = li.classList.contains('completed');
+        const text = li.firstChild?.textContent?.trim() ||'';
+
+      const isCompleted = li.classList.contains('completed');
         tasks.push({ text, completed: isCompleted });
     });
     localStorage.setItem('myTodoListTasks', JSON.stringify(tasks));
 }
+
 // Функция, которая достает задачи из памяти при открытии сайта
 function loadTasks() {
     const saved = localStorage.getItem('myTodoListTasks');
-    if (!saved)
-        return;
+    if (!saved) return;
+    
     const tasks = JSON.parse(saved);
-    tasks.forEach((task) => {
+    tasks.forEach((task: any) => {
         createTaskElement(task.text, task.completed);
     });
 }
+
 // Функция создания одного элемента на экране (чтобы не дублировать код)
-function createTaskElement(text, isCompleted = false) {
+function createTaskElement(text: any, isCompleted = false) {
     const li = document.createElement('li');
     li.textContent = text;
     li.style.cursor = 'pointer';
+    
     if (isCompleted) {
         li.classList.add('completed');
         li.style.textDecoration = 'line-through';
         li.style.opacity = '0.5';
     }
+
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'X';
     deleteBtn.style.marginLeft = '10px';
-    li.addEventListener('click', function () {
+
+    li.addEventListener('click', function() {
         li.classList.toggle('completed');
         if (li.style.textDecoration === 'line-through') {
             li.style.textDecoration = 'none';
             li.style.opacity = '1';
-        }
-        else {
+        } else {
             li.style.textDecoration = 'line-through';
             li.style.opacity = '0.5';
         }
         saveTasks(); // Сохраняем, когда зачеркнули
     });
-    deleteBtn.addEventListener('click', function (event) {
+
+    deleteBtn.addEventListener('click', function(event) {
         event.stopPropagation();
         li.remove();
         saveTasks(); // Сохраняем, когда удалили одну задачу
     });
+
     li.appendChild(deleteBtn);
     taskList.appendChild(li);
 }
+
 function addTask() {
     const text = taskInput.value.trim();
-    if (text === '')
-        return;
+    if (text === '') return;
+
     createTaskElement(text);
     saveTasks(); // Сохраняем, когда добавили новую
     taskInput.value = '';
 }
-clearAllBtn.addEventListener('click', function () {
+
+clearAllBtn.addEventListener('click', function() {
     taskList.innerHTML = '';
     localStorage.removeItem('myTodoListTasks'); // Полностью очищаем память
 });
+
 addBtn.addEventListener('click', addTask);
-taskInput.addEventListener('keypress', function (event) {
+taskInput.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
         addTask();
     }
 });
+
 // Запускаем проверку памяти сразу при загрузке страницы!
 loadTasks();
+
