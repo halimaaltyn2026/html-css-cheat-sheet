@@ -11,7 +11,6 @@ function getWelcomeMessage(user) {
     }
 }
 
-// Ваш рабочий код для формы
 const form = document.querySelector('form');
 const email = document.getElementById('email');
 form.addEventListener('submit', (e) => {
